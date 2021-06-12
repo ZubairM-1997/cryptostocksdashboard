@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=KoHoo&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Andika+New+Basic:wght@700&display=swap");
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Andika New Basic';
 }
 
 .home,

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import CryptoItem from "./CryptoItem"
+import "./Crypto.css"
 
 export default class MostTraded extends Component {
 	render(){

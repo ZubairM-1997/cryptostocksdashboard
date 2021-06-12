@@ -1,16 +1,18 @@
 import React, { Component } from 'react'
+import "./Crypto.css"
 
  const CryptoItem = (props) => {
 	 console.log(props)
 	return (
 		<div className="cryptoItem">
-			<h3>{props.cryptoName}</h3>
+			<h3 className="cryptoName">
+				{props.cryptoName}
+			</h3>
 			<ul>
-				<li>Symbol: {props.symbol}</li>
-				<li>Circulating Supply: {props.supply}</li>
-				<li>Market Cap: $ {props.marketCap}</li>
-				<li>Price: $ {props.price}</li>
-				<li>Volume: $ {props.volume}</li>
+				<ul>Circulating Supply: {props.supply} {props.symbol}</ul>
+				<ul>Market Cap: $ {props.marketCap}</ul>
+				<ul>Price: $ {props.price}</ul>
+				<ul>Volume: $ {props.volume}</ul>
 			</ul>
 		</div>
 
