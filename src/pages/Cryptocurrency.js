@@ -1,35 +1,44 @@
 import React, { Component } from 'react'
-import axios from 'axios';
-
+import CryptoCollection from '../components/Crypto/CryptoCollection'
 
 class Cryptocurrency extends Component {
 
+	state = {
+		cryptoData: []
+	}
 	componentDidMount(){
 		this.fetchData()
-
+		console.log(this.state)
 	}
 
-	async fetchData(){
-		const url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
-		const ApiKey = "976f1416-c7c4-4c71-8c2d-f5f0eb19d670"
-		const qString =  "&start=1limit=5&convert=USD"
-		try {
-			let response = await axios.get(url + qString, {
-				headers: {
-					'X-CMC_PRO_API_KEY': ApiKey
-				}
-			})
-			console.log(response)
-		} catch(err) {
-			console.log(err)
-		}
+	setCryptoDataState = (cryptoDataArray) => {
+		this.setState({
+			cryptoData: cryptoDataArray
+		})
+	}
+
+	fetchData(){
+		const url = 'http://localhost:5000/cryptocurrency/cryptoData'
+		const response = fetch(url, {
+			headers: {
+				'Content-Type': 'application/json',
+			}
+		})
+		response.then((resp) => resp.json())
+		.then((data) => {
+			let arrayData = data.data
+			console.log(arrayData)
+			this.setCryptoDataState(arrayData)
+		}).then(() => {
+			console.log(this.state)
+		})
+
 	}
 
 	render(){
 		return (
 			<div className='cryptocurrency'>
-
-				<h1>Cryptocurrencies</h1>
+				<CryptoCollection cryptoData={this.state.cryptoData}/>
 			</div>
 		)
 	}
