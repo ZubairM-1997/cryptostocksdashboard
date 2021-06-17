@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import "./Crypto.css"
 
  const CryptoItem = (props) => {
-	 console.log(props)
 	return (
 		<div className="cryptoItem">
 			<h3 className="cryptoName">
